@@ -1,12 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:meditation_app/features/home/screens/home.dart';
+import 'package:flutter/material.dart'; //untuk menggunakan widget Material Design.
+import 'package:lottie/lottie.dart'; //untuk menggunakan animasi Lottie.
+import 'package:meditation_app/features/home/screens/home.dart'; //Mengimpor layar utama dari aplikasi meditasi.
 
 class OnBoardingScreen extends StatefulWidget {
+  //sebuah StatefulWidget yang mendefinisikan layar pengenalan.
+
   const OnBoardingScreen({super.key});
 
   @override
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+  //State kelas untuk OnBoardingScreen yang mengatur tampilan dan logika dari layar pengenalan.
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
@@ -16,6 +19,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       body: Stack(
         children: [
           Container(
+            //Latar belakang dengan gradien warna biru.
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -29,6 +33,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           const Positioned(
+            //Menampilkan teks sambutan di tengah layar.
             top: 200,
             left: 0,
             right: 0,
@@ -79,6 +84,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           Positioned(
+            //Menampilkan animasi Lottie di bagian bawah layar.
             bottom: 120,
             left: 0,
             right: 0,

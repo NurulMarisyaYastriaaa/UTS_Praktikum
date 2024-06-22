@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+//Mengimpor pustaka Material Design dari Flutter untuk
+//menggunakan warna dan widget lainnya.
 import 'package:meditation_app/features/home/model/recommendation_model.dart';
+//Mengimpor RecommendationModel dari paket meditation_app.
 
 class RecommendationsData {
+  //digunakan untuk menyimpan data rekomendasi sesi meditasi.
   static RecommendationModel mindfulMoments = RecommendationModel(
     title: 'Mindful Moments',
     color: Colors.blue,
@@ -68,3 +72,4 @@ class RecommendationsData {
     tranquilSunset,
   ];
 }
+//List ini menyusun semua rekomendasi sesi meditasi yang tersedia dalam satu tempat.

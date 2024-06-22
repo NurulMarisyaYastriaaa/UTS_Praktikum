@@ -1,11 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import 'package:flutter/material.dart'; //untuk menggunakan widget Material Design.
+import 'package:lottie/lottie.dart'; //untuk animasi Lottie.
 import 'package:meditation_app/features/home/data/mood_data.dart';
 import 'package:meditation_app/features/home/data/recommendations.dart';
 import 'package:meditation_app/features/home/model/recommendation_model.dart';
 import 'package:meditation_app/features/home/widgets/balls_widget.dart';
 import 'package:meditation_app/features/player/screens/player.dart';
+//Mengimpor beberapa file dari aplikasi untuk menggunakan data dan
+//model mood serta rekomendasi meditasi.
 
+//sebuah StatefulWidget yang berarti memiliki state yang bisa berubah-ubah.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -13,6 +16,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+//mengimpor berbagai modul yang diperlukan untuk membangun tampilan HomeScreen,
+//termasuk widget Flutter dasar, animasi Lottie, data mood, rekomendasi, model data, dan widget kustom.
 class _HomeScreenState extends State<HomeScreen> {
   final ValueNotifier<String> _notifier =
       ValueNotifier<String>(MoodData.tenang.name);
@@ -20,9 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Widget dasar yang menyediakan struktur layout untuk layar.
       body: SingleChildScrollView(
+        //Memungkinkan layar untuk digeser
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
+          //Mengatur layout secara vertikal.
           children: [
             const SizedBox(height: 70),
             Row(
@@ -139,8 +147,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 20),
             ClipRRect(
+              //Membuat kontainer dengan sudut melingkar.
               borderRadius: BorderRadius.circular(30),
               child: Stack(
+                //Menumpuk beberapa widget di atas satu sama lain.
                 children: [
                   Container(
                     height: 220,
@@ -171,6 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const SizedBox(height: 10),
                         Text(
+                          //Menampilkan teks informasi sesi meditasi.
                           "Meditasi 5-10 min",
                           style: TextStyle(
                             color: Colors.white.withOpacity(.8),
@@ -180,6 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(
                           width: 140,
                           child: FilledButton(
+                              //Tombol
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.white,
                                 foregroundColor: Colors.indigo,

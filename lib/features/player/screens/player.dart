@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+//untuk menggunakan widget Material dan Cupertino.
+import 'package:lottie/lottie.dart'; //untuk menggunakan animasi Lottie.
 import 'package:meditation_app/features/home/model/recommendation_model.dart';
+//untuk mendapatkan data rekomendasi meditasi.
 
+//sebuah StatefulWidget yang menerima model sebagai parameter untuk menampilkan informasi rekomendasi.
 class PlayerScreen extends StatefulWidget {
   const PlayerScreen({super.key, required this.model});
 
@@ -14,13 +17,17 @@ class PlayerScreen extends StatefulWidget {
 
 class _PlayerScreenState extends State<PlayerScreen>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+  //SingleTickerProviderStateMixin digunakan untuk animasi.
+  late AnimationController
+      _controller; //AnimationController mengontrol animasi.
   late Animation<double> _progress;
 
+  //ValueNotifier<double> digunakan untuk mengontrol nilai slider pemutar.
   final ValueNotifier<double> _player = ValueNotifier<double>(0);
-  bool _isDark = false;
+  bool _isDark = false; //_isDark menentukan mode tema (gelap atau terang).
 
   controllerListener() {
+    //controllerListener: Memeriksa status animasi dan memanggil increasePlayer.
     if (_controller.status == AnimationStatus.forward ||
         _controller.status == AnimationStatus.completed) {
       increasePlayer();
@@ -28,6 +35,7 @@ class _PlayerScreenState extends State<PlayerScreen>
   }
 
   increasePlayer() async {
+    //increasePlayer: Mengatur nilai player dan mengontrol animasi pemutar.
     if (_controller.status == AnimationStatus.forward ||
         _controller.status == AnimationStatus.completed) {
       if ((_player.value + .0005) > 1) {
@@ -48,8 +56,10 @@ class _PlayerScreenState extends State<PlayerScreen>
 
   @override
   void initState() {
+    //Menginisialisasi AnimationController dan Animation.
     super.initState();
     _controller = AnimationController(
+      //Menambahkan listener untuk mengontrol animasi dan memanggil controllerListener.
       duration: const Duration(milliseconds: 300),
       vsync: this,
     );
@@ -67,10 +77,14 @@ class _PlayerScreenState extends State<PlayerScreen>
   @override
   Widget build(BuildContext context) {
     return Material(
+      //Material Widget: Menentukan warna latar belakang berdasarkan tema (_isDark).
       color: _isDark ? Colors.black : Colors.white,
       child: Scaffold(
+        //Scaffold: Menyediakan struktur dasar untuk tampilan layar.
         backgroundColor: widget.model.color.withOpacity(.1),
         body: SingleChildScrollView(
+          //SingleChildScrollView: Memungkinkan tampilan layar untuk
+          //menggulung (scroll) jika konten melebihi tinggi layar.
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
@@ -148,6 +162,7 @@ class _PlayerScreenState extends State<PlayerScreen>
               ),
               const SizedBox(height: 20),
               Text(
+                //Text: Menampilkan judul, penulis, dan slogan dari model rekomendasi.
                 widget.model.title,
                 style: TextStyle(
                   fontSize: 30,
@@ -209,6 +224,7 @@ class _PlayerScreenState extends State<PlayerScreen>
                 valueListenable: _player,
                 builder: (context, value, _) {
                   return Slider(
+                    //Slider: Kontrol untuk mengatur posisi pemutaran
                     thumbColor: widget.model.color.shade300,
                     activeColor: widget.model.color.shade300,
                     inactiveColor: widget.model.color.withOpacity(.4),

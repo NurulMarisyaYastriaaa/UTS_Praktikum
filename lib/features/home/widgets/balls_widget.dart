@@ -1,9 +1,11 @@
-import 'dart:math';
+import 'dart:math'; //untuk menggunakan fungsi acak.
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; //untuk menggunakan widget Material Design.
 import 'package:meditation_app/features/home/model/recommendation_model.dart';
 import 'package:meditation_app/features/player/screens/player.dart';
+//Mengimpor model rekomendasi dan layar pemutar dari aplikasi meditasi.
 
+//sebuah StatefulWidget yang menerima satu parameter model dari tipe RecommendationModel.
 class Balls extends StatefulWidget {
   const Balls({
     super.key,
@@ -17,9 +19,15 @@ class Balls extends StatefulWidget {
 }
 
 class _BallsState extends State<Balls> {
-  List<double> positions = [0, 0, 0, 0];
+  List<double> positions = [
+    0,
+    0,
+    0,
+    0
+  ]; //positions: List yang menyimpan posisi acak untuk dua bola.
 
   void randomize() {
+    //Fungsi ini mengatur posisi acak untuk dua bola.
     positions[0] = Random().nextInt(100) + 80;
     positions[1] = Random().nextInt(150) - 50;
     positions[2] = Random().nextInt(100) + 80;
@@ -27,6 +35,7 @@ class _BallsState extends State<Balls> {
   }
 
   initMoment() async {
+    //Fungsi ini memanggil randomize dan memperbarui UI setiap 3 detik secara rekur
     if (mounted && context.mounted) {
       randomize();
 
@@ -40,6 +49,7 @@ class _BallsState extends State<Balls> {
 
   @override
   void initState() {
+    //Inisialisasi posisi acak saat widget pertama kali dibangun dan memulai animasi.
     super.initState();
     randomize();
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -52,15 +62,19 @@ class _BallsState extends State<Balls> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
+      //Membuat kontainer dengan sudut melingkar.
       borderRadius: BorderRadius.circular(40),
       child: Container(
+        //Kontainer utama dengan lebar 170 dan warna latar belakang sesuai model.
         width: 170,
         decoration: BoxDecoration(
           color: widget.model.color.shade300,
         ),
         child: Stack(
+          //Menumpuk beberapa widget di atas satu sama lain.
           children: [
             AnimatedPositioned(
+              //Mengatur posisi animasi dua bola yang bergerak secara acak setiap 3 detik.
               duration: const Duration(seconds: 3),
               top: positions[0],
               right: positions[1],
@@ -94,6 +108,7 @@ class _BallsState extends State<Balls> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
+                    //Menampilkan judul dan durasi rekomendasi meditasi.
                     widget.model.title,
                     style: const TextStyle(
                       color: Colors.white,
@@ -117,6 +132,7 @@ class _BallsState extends State<Balls> {
                       ),
                       const Spacer(),
                       GestureDetector(
+                        //Mengarahkan ke layar pemutar saat tombol play ditekan.
                         onTap: () {
                           Navigator.push(
                             context,

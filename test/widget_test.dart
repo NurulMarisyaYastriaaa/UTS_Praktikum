@@ -1,9 +1,9 @@
-// This is a basic Flutter widget test.
+// Ini adalah tes widget Flutter dasar.
 //
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+// Untuk melakukan interaksi dengan widget dalam pengujian Anda, gunakan WidgetTester
+// utilitas dalam paket flutter_test. Misalnya, Anda dapat mengirim ketuk dan gulir
+// isyarat. Anda juga dapat menggunakan WidgetTester untuk menemukan widget anak di widget
+// pohon, membaca teks, dan memverifikasi bahwa nilai properti widget sudah benar.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,18 +12,18 @@ import 'package:meditation_app/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+    // Bangun aplikasi kami dan picu bingkai.
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
+    // Verifikasi bahwa penghitung kami dimulai dari 0.
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
+    // Ketuk ikon '+' dan picu bingkai.
     await tester.tap(find.byIcon(Icons.add));
     await tester.pump();
 
-    // Verify that our counter has incremented.
+    // Verifikasi bahwa penghitung kami telah bertambah.
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
