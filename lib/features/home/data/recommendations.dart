@@ -9,6 +9,7 @@ class RecommendationsData {
     slogan:
         "The goal is to become more aware of \n your thoughts and emotions how...",
     author: "Aggam Agrawal",
+    song: 'assets/songs/deep-meditation-1.mp3',
   );
 
   static RecommendationModel zenHarmony = RecommendationModel(
@@ -18,6 +19,7 @@ class RecommendationsData {
     slogan:
         "Find inner peace and balance in the harmony of the present moment...",
     author: "Serena Tran",
+    song: '',
   );
 
   static RecommendationModel serenitySessions = RecommendationModel(
@@ -27,6 +29,7 @@ class RecommendationsData {
     slogan:
         "Immerse yourself in tranquil sessions to discover inner serenity...",
     author: "Elena Rodriguez",
+    song: '',
   );
 
   static RecommendationModel calmOasis = RecommendationModel(
@@ -35,6 +38,7 @@ class RecommendationsData {
     duration: '10 to 15 min',
     slogan: "Step into a calm oasis to rejuvenate your mind and spirit...",
     author: "Michael Chen",
+    song: '',
   );
 
   static RecommendationModel eternalBliss = RecommendationModel(
@@ -43,6 +47,7 @@ class RecommendationsData {
     duration: '25 to 30 min',
     slogan: "Experience eternal bliss as you connect with your inner self...",
     author: "Sophie Williams",
+    song: '',
   );
 
   static RecommendationModel tranquilSunset = RecommendationModel(
@@ -51,6 +56,7 @@ class RecommendationsData {
     duration: '15 to 20 min',
     slogan: "Relax and unwind in the peaceful glow of a tranquil sunset...",
     author: "Aiden Thompson",
+    song: '',
   );
 
   static List<RecommendationModel> all = [

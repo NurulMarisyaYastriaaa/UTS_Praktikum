@@ -6,6 +6,7 @@ class RecommendationModel {
   final String duration;
   final String slogan;
   final String author;
+  final String song;
 
   RecommendationModel({
     required this.title,
@@ -13,5 +14,6 @@ class RecommendationModel {
     required this.duration,
     required this.slogan,
     required this.author,
+    required this.song,
   });
 }
